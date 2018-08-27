@@ -6,3 +6,5 @@ List of all conversions
 List of top 10 conversions
 # /api/?integer=var - post
 Conversion INT for roman Numbers and return result of conversion
+
+For Testing i used sqlite
