@@ -1,4 +1,4 @@
-I userd POSTMAN for testing results
+I used POSTMAN for testing results
 
 # /api/ - get
 List of all conversions
