@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Convert extends Model
 {
     //
+    public $converted;
+    public $integer;
+
     public static function topConverted(){
         return static::selectRaw('converted,integer, count(converted) times')
             ->groupBy('converted')

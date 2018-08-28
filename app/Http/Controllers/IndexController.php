@@ -14,22 +14,24 @@ class IndexController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
 
 
     public function index()
     {
         //
-        $convertered = Convert::latest()->get();
-        return ConvertResource::collection($convertered);
+        $converted = Convert::latest()->get();
+        return ConvertResource::collection($converted);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return ConvertResource|\Illuminate\Support\MessageBag
+     * @throws \Romans\Filter\Exception
+     * @throws \Romans\Filter\Exception
      */
     public function store(Request $request)
     {
@@ -41,8 +43,8 @@ class IndexController extends Controller
             $msg = $validator->errors();
         } else {
             $convert = new Convert();
-            $convert->integer = $request->integer;
-            $convert->converted = $intToRoman->filter($request->integer);
+            $convert->integer = request('integer');
+            $convert->converted = $intToRoman->filter(request('converted'));
             $convert->save();
             $msg = new ConvertResource($convert);
         }

@@ -6,6 +6,11 @@ use Illuminate\Http\Resources\Json\Resource;
 
 class Convert extends Resource
 {
+    public $created_at;
+    public $converted;
+    public $integer;
+    public $id;
+
     /**
      * Transform the resource into an array.
      *
