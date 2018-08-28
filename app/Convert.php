@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUndefinedMethodInspection */
 
 namespace App;
 
@@ -9,8 +9,10 @@ class Convert extends Model
     //
     public $converted;
     public $integer;
+    protected $fillable = ['integer', 'converted'];
 
-    public static function topConverted(){
+    public static function topConverted()
+    {
         return static::selectRaw('converted,integer, count(converted) times')
             ->groupBy('converted')
             ->orderByRaw('times desc')

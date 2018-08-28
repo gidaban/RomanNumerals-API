@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/','IndexController@index');
-Route::get('/top','IndexController@showTopConverted');
-Route::post('/','IndexController@store');
+Route::get('/','IndexController@index')->name('api.index');
+Route::get('/top','IndexController@showTopConverted')->name('api.top');
+Route::post('/','IndexController@store')->name('api.store');
